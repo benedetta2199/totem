@@ -19,7 +19,7 @@ export default function Home() {
 
   const addanimale = async () => {
     /**Aggiungere controllo su nome già inserito o non inserito nulla */
-    await setDoc(doc(db,'animale',animale), {famiglia: famiglia, alimentazione: alimentazione, aggettiviP: adjsP.sort()base, aggettiviN: adjsN.sort()});
+    await setDoc(doc(db,'animale',animale), {famiglia: famiglia, alimentazione: alimentazione, aggettiviP: adjsP.sort(), aggettiviN: adjsN.sort()});
   }
 
   const getAllAdj = async() =>{
