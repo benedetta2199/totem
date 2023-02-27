@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@img/*":["./public/*"],
+      "@database":["./src/pages/api/firestore"]
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.menuBtn{
+  position: relative;
+  width: 68vw;
+  height: 9vh;
+  margin-top: 5vh;
+  text-transform: uppercase;
+  font-size: 24px;
+  background-color: var(--gray);
+  color: var(--dark) !important;
+  border: none;
+}
+.menuBtn:hover{background-color: var(--light); color: var(--dark);}
+.menuBtnLeft{left: -1vw; padding: 0; padding-left: 1vw;}
+.menuBtnRight{right: -1vw; padding: 0; padding-right: 1vw;}
+
+.containerAnimals{
+  background-color: var(--gray);
+  position: fixed;
+  width: 85px;
+  padding: 2.5px;
+  border-top-right-radius: 10px ;
+  border-bottom-right-radius: 10px;
+  height: 80vh;
+  overflow-y: scroll;
+}
+.containerAnimals img{opacity: 0.6; margin: 1vh auto; -webkit-transform: scaleX(-1); transform: scaleX(-1);}
+.active{opacity:1 !important}
+
+.containerAnimal{
+  position: fixed; left: 90px; overflow-x: hidden;
+  width: calc(100% - 91px); height: 90vh;
+  text-align: right;  
+  padding-bottom: 8vh;
+}
+.containerAnimal img{
+  width: 224px; height: 280px; 
+  position: relative; right: -15%; 
+  margin-top: 2vh; 
+  object-fit: contain; object-position: 60% 50%;
+}
