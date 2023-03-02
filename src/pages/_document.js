@@ -2,12 +2,11 @@ import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="it">
       <Head />
       <body>
         <Main />
         <NextScript />
-        <img src="/jungle.png" alt="" className='jungle'/>
       </body>
     </Html>
   )

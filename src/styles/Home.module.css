@@ -23,8 +23,12 @@
   height: 80vh;
   overflow-y: scroll;
 }
-.containerAnimals img{opacity: 0.6; margin: 1vh auto; -webkit-transform: scaleX(-1); transform: scaleX(-1);}
-.active{opacity:1 !important}
+.containerAnimals img{
+  opacity: 0.6; 
+  margin: 1vh auto; 
+  -webkit-transform: scaleX(-1); transform: scaleX(-1);
+  object-fit: contain; object-position: 60% 50%;
+}
 
 .containerAnimal{
   position: fixed; left: 90px; overflow-x: hidden;
@@ -34,7 +38,50 @@
 }
 .containerAnimal img{
   width: 224px; height: 280px; 
-  position: relative; right: -15%; 
-  margin-top: 2vh; 
+  position: relative; right: -15%; top: -2vh;
   object-fit: contain; object-position: 60% 50%;
 }
+.containerAnimal div{position: relative; top: -2vh;}
+
+.card, .card::before {width: 30vw; height: 40vw; border-radius: 5px}
+.card{padding: 1px 0 2vh 0; background-color: var(--green);margin: 2vh auto; }
+.card::before {
+  content: "";
+  background: url('../../public/curve.webp') no-repeat;
+  background-size: contain;
+  background-position: 0 100%;
+  position: absolute;
+  display: inline-block;
+}
+.card img {width: 95%; height: 100%; object-fit: cover; object-position: 80% 0%; margin-left: 5%;}
+.card p {
+  position: relative;
+  bottom: 5px;
+  color: var(--dark);
+  text-align: center;
+  z-index: 2;
+}
+
+.detailFixed{position: fixed;width: 100%;}
+.detailFixed img{
+  width: 72vw;
+  height: 90vw;
+  position: relative; left: -10%; 
+  object-fit: contain; object-position: 100% 0;
+  -webkit-transform: scaleX(-1); transform: scaleX(-1);
+}
+
+.detailScroll{background-color: var(--gray); margin-top: 48vh; position: relative; min-height: 52vh; padding-bottom: 5vh;}
+.detailScroll::before {
+  width: 102vw;
+  height: 100px;
+  content: "";
+  background: url('../../public/curve.webp') no-repeat;
+  background-size: cover;
+  top: -100px;
+  left: -2vw;
+  position: absolute;
+  display: inline-block;
+  -webkit-transform: scaleX(-1); transform: scaleX(-1);
+}
+.detailScroll>*{margin: 0 2vw ; color: var(--black);}

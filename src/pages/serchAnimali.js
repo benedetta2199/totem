@@ -1,10 +1,23 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import Image from 'next/image'
+import { useState } from 'react';
+
+import useStore from "@store";
 
 export default function Home() {
 
-  console.log(ANIMAL);
+  /**CAMPI PER CHECKBOX */
+  const animalSearch = useStore((state) => state.animalSearch);
+
+  const [nome, setNome] = useState('');
+  const [famiglia, setFamiglia] = useState('');
+  const [alimentazione, setAlimentazione] = useState('');
+  const [intersection, setIntersection] = useState('');
+  const [adjP, setAdjP] = useState('');
+  const [adjN, setAdjN] = useState('');
+  const [index, setIndex] = useState();
+
 
   return (
     <>
@@ -17,27 +30,40 @@ export default function Home() {
       <main>
         <h1>Animali corrispondenti</h1>
         <div className={styles.containerAnimals}>
-          <Image src="/animal/airone.webp" alt='alce' width={80} height={100}/>
-          <Image src="/animal/ara.webp" alt='alce' width={80} height={100} className={styles.active}/>
-          <Image src="/animal/arascarlatta.webp" alt='alce' width={80} height={100} />
-          <Image src="/animal/alce.webp" alt='alce' width={80} height={100} />
+          {animalSearch.map((item,i) => (
+            <Image src={'/animal/'+item.nome.toLowerCase().replaceAll(' ','')+'.webp'} alt={item.nome} width={80} height={100} className={index===i ? 'active':''}
+            onClick={()=>{
+              setNome(item.nome);
+              setFamiglia(item.famiglia);
+              setAlimentazione(item.alimentazione);
+              setIntersection(item.intersection);
+              setAdjP(item.aggettiviP.toString().replaceAll(',',', '));
+              setAdjN(item.aggettiviN.toString().replaceAll(',',', '));
+              setIndex(i);
+            }} placeholder='blur'/>
+          ))}
         </div>
         <div className={styles.containerAnimal}>
-          <small className='me-1'>Aggettivi in comune: 1</small><br/>
-          <h2 className='lightT text-start h1 m-0'>Alce</h2>
-          <Image src="/animal/alce.webp" alt='alce' width={240} height={300}/>
-          <div  className='me-1'>
-            <p className='m-0'>Famiglia: uccelli</p>
-            <p className=''>Alimentazione: carnivoro</p>
-            <p className='ps-1 lightT t-khand h5 m-0 text-start'>Aggettivi positivi</p>
-            <p className='ps-2 text-start'>
-            Ardito, Timido, Armonioso, Stonato, Assertivo, Irresoluto, Astuto, Ingenuo, Attento, Disattento, Ardito, Timido, Armonioso, Stonato, Assertivo, Irresoluto, Astuto, Ingenuo, Attento, Disattento
-            </p>            
-            <p className='ps-1 lightT t-khand h5 m-0 text-start'>Aggettivi negativi</p>
-            <p className='ps-2 text-start'>
-            Ardito, Timido, Armonioso, Stonato, Assertivo, Irresoluto, Astuto, Ingenuo, Attento, Disattento, Ardito, Timido, Armonioso, Stonato, Assertivo, Irresoluto, Astuto, Ingenuo, Attento, Disattento
-            </p>
-          </div>
+          {animalSearch.length===0 
+            ? <p className='p-relative px-2 grayT'><small>Non sono stati trovati animali corrispondenti alla ricerca</small> </p>
+            : <></>
+          }
+          { nome != '' ?
+            <>
+              <small className='me-1'>Aggettivi in comune: {intersection}</small><br/>
+              <h2 className='lightT text-start h1 m-0'>{nome}</h2>
+              <Image src={'/animal/'+nome.toLowerCase().replaceAll(' ','')+'.webp'} alt='' width={240} height={300} priority/>
+              <div  className='me-1'>
+                <p className='m-0'>Famiglia: {famiglia}</p>
+                <p className=''>Alimentazione: {alimentazione}</p>
+                <p className='ps-1 lightT t-khand h5 m-0 text-start'>Aggettivi positivi</p>
+                <p className='ps-2 text-start'>{adjP}</p>            
+                <p className='ps-1 lightT t-khand h5 m-0 text-start'>Aggettivi negativi</p>
+                <p className='ps-2 text-start'>{adjN}</p>
+              </div>
+            </>
+            : <></>
+          }
         </div>
         
         {/*<Image
