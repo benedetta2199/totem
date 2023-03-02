@@ -29,10 +29,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div className={styles.detailFixed}>
-          <h1>{item.nome}</h1>
-          <Image src={"/animal/"+item.nome.toLowerCase().replaceAll(' ','')+'.webp'} alt="" width={500} height={500} priority/>
-        </div>
+        {item &&
+          <div className={styles.detailFixed}>
+            
+            <h1>{item.nome}</h1>
+            <Image src={"/animal/"+item.nome.toLowerCase().replaceAll(' ','')+'.webp'} alt="" width={500} height={500} priority/>
+          </div>
+        }
         <div className={styles.detailScroll}>
           <p className='text-end h6'>Famiglia: {item.famiglia}</p>
           <p className='text-end h6'>Alimentazione: {item.alimentazione}</p>
