@@ -55,14 +55,14 @@ main{width: var(--w); margin-left: calc((100vw - var(--w))/2);  position: relati
   font-family: 'Khand', sans-serif !important; 
 }
 
-.btnY{
-  background-color: var(--light) !important;
+.btnY, .btnG{
   width: 50%;
   border: none !important;
-  color: var(--dark) !important;
   font-weight: bold !important;
   margin: auto 25% !important;
 }
+.btnY{background-color: var(--light) !important;color: var(--dark) !important;}
+.btnG{background-color: var(--dark) !important;color: var(--light) !important;}
 
 .active{opacity:1 !important}
 

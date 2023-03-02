@@ -23,7 +23,7 @@ export default function Home() {
         {allAnimal.map((item) => (
               <div key={item.name} className={styles.card} onClick={()=>{setAnimalClick(item); r.push('./animalDetail')}}>
                 <Image src={"/animal/"+item.nome.toLowerCase().replaceAll(' ','')+'.webp'} alt="" width={100} height={10} priority/>
-              <p>{item.nome}</p>
+                <p>{item.nome}</p>
               </div>
             ))}
           

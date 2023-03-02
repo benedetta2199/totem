@@ -6,8 +6,12 @@ import { doc, setDoc, updateDoc } from 'firebase/firestore';
 
 import db from '@database';
 import useStore from '@store';
+import { useRouter } from 'next/router';
 
 export default function Home() {
+
+  const r = useRouter();
+
   /**CAMPI STORE */
   const addAdsP = useStore((state) => state.addAdjP);
   const addAdsN = useStore((state) => state.addAdjN);
@@ -100,7 +104,7 @@ export default function Home() {
             ))}
         </Row>
 
-       <Button className='btnY mt-3' onClick={()=>{addAggettivo()}}>Aggiungi</Button>
+       <Button className='btnY mt-3' onClick={()=>{addAggettivo(); r.push('/')}}>Aggiungi</Button>
         
         {/*<Image
                 src="/vercel.svg"
