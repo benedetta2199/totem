@@ -40,7 +40,7 @@ export default function Home() {
               setAdjP(item.aggettiviP.toString().replaceAll(',',', '));
               setAdjN(item.aggettiviN.toString().replaceAll(',',', '));
               setIndex(i);
-            }} placeholder='blur'/>
+            }} key={item.nome}/>
           ))}
         </div>
         <div className={styles.containerAnimal}>
