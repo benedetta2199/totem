@@ -82,7 +82,7 @@ main{width: var(--w); margin-left: calc((100vw - var(--w))/2);  position: relati
     position: fixed;
     z-index: 5;
   }
-  body::after{ right: 0; top: 0; }
+  body::after{ left: calc(var(--w)+(100vw - var(--w))/2); top: 0; }
 }
 @media only screen and (min-width: 992px) {
   :root { --w: 32vw; }
