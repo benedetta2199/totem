@@ -11,7 +11,7 @@ export default function Home() {
 
   /**CAMPI STORE */
   const temp = useStore((state) => state.animalClick);
-  const item = (temp || {nome: '', famiglia:'', alimentazione:'', aggettiviP:[], aggettiviN:[]});
+  const item = temp !== 'undefine' ? temp : {nome: '', famiglia:'', alimentazione:'', aggettiviP:[], aggettiviN:[]};
 
   const diffAdjsP = useStore((state) => state.adjsP).filter(x => !item.aggettiviP.includes(x));
   const diffAdjsN = useStore((state) => state.adjsN).filter(x => !item.aggettiviN.includes(x));
