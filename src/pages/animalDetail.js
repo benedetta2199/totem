@@ -10,7 +10,8 @@ export default function Home() {
   const r = useRouter();
 
   /**CAMPI STORE */
-  const item = useStore((state) => state.animalClick);
+  let item = {nome:''};
+  item = useStore((state) => state.animalClick);
 
   const diffAdjsP = useStore((state) => state.adjsP).filter(x => !item.aggettiviP.includes(x));
   const diffAdjsN = useStore((state) => state.adjsN).filter(x => !item.aggettiviN.includes(x));
