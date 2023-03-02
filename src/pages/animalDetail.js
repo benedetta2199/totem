@@ -12,6 +12,7 @@ export default function Home() {
   /**CAMPI STORE */
   const temp = useStore((state) => state.animalClick);
   const item = temp !== 'undefine' ? temp : {nome: '', famiglia:'', alimentazione:'', aggettiviP:[], aggettiviN:[]};
+  const img = (item.nome || '').toLowerCase().replaceAll(' ','');
 
   const diffAdjsP = useStore((state) => state.adjsP).filter(x => !item.aggettiviP.includes(x));
   const diffAdjsN = useStore((state) => state.adjsN).filter(x => !item.aggettiviN.includes(x));
@@ -34,7 +35,7 @@ export default function Home() {
           <div className={styles.detailFixed}>
             
             <h1>{item.nome}</h1>
-            <Image src={"/animal/"+ item.nome.toLowerCase().replaceAll(' ','') +'.webp'} alt="" width={500} height={500} priority/>
+            <Image src={"/animal/"+ img +'.webp'} alt="" width={500} height={500} priority/>
           </div>
         }
         <div className={styles.detailScroll}>
