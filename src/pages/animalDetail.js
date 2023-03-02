@@ -10,9 +10,10 @@ export default function Home() {
   const r = useRouter();
 
   /**CAMPI STORE */
-  const temp = useStore((state) => state.animalClick);
-  const item = temp !== 'undefine' ? temp : {nome: '', famiglia:'', alimentazione:'', aggettiviP:[], aggettiviN:[]};
+  const item = useStore((state) => state.animalClick);
   const img = (item.nome || '').toLowerCase().replaceAll(' ','');
+  const aP = (item.aggettiviP || []).toString().replaceAll(',',', ');
+  const aN = (item.aggettiviN || []).toString().replaceAll(',',', ');
 
   const diffAdjsP = useStore((state) => state.adjsP).filter(x => !item.aggettiviP.includes(x));
   const diffAdjsN = useStore((state) => state.adjsN).filter(x => !item.aggettiviN.includes(x));
@@ -42,9 +43,9 @@ export default function Home() {
           <p className='text-end h6'>Famiglia: {item.famiglia}</p>
           <p className='text-end h6'>Alimentazione: {item.alimentazione}</p>
           <p className='darkT t-khand h5 pt-2'>Aggettivi positivi:</p>
-          <p>{item.aggettiviP.toString().replaceAll(',',', ')}</p>
+          <p>{aP}</p>
           <p className='darkT t-khand h5 pt-2'>Aggettivi negativi:</p>
-          <p>{item.aggettiviN.toString().replaceAll(',',', ')}</p>
+          <p>{aN}</p>
           <p className='darkT t-khand h5 pt-3 text-center'>Aggiungi aggettivi positivi:</p>
           <div className='d-flex flex-wrap px-2'>
             {diffAdjsP.map((item) => (
