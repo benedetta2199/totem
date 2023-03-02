@@ -55,7 +55,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Bestiario - Aggiungi ANimale</title>
+        <title>Bestiario - Aggiungi Animale</title>
       </Head>
       <main className={`${styles.main} pb-5`}>
         <h1>Aggiungi un animale</h1>
