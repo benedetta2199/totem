@@ -11,7 +11,7 @@ export default function Home() {
 
   /**CAMPI STORE */
   const item = useStore((state) => state.animalClick);
-  const img = item.nome.toLowerCase().replaceAll(' ','')+'.webp';
+  const img = (someVar || '').toLowerCase().replaceAll(' ','')+'.webp';
 
   const diffAdjsP = useStore((state) => state.adjsP).filter(x => !item.aggettiviP.includes(x));
   const diffAdjsN = useStore((state) => state.adjsN).filter(x => !item.aggettiviN.includes(x));
