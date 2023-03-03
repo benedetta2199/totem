@@ -12,9 +12,9 @@ const useStore = create((set,get) => ({
   inizializeAdjsN: (allAdjs) => set((state) => ({ adjsN: allAdjs })),
 
 
-  addAnimal: (elem) => {set((state) => ({ animals: [...state.animals, elem].sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0)) }));},
-  addAdjP: (elem) => {set((state) => ({ adjsP: [...state.adjsP, elem] })); get().adjsP.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0));},
-  addAdjN: (elem) => { set((state) => ({ adjsN: [...state.adjsN, elem] }));  get().adjsN.sort((a,b) => (a.id > b.id) ? 1 : ((b.id > a.id) ? -1 : 0)); },
+  addAnimal: (elem) => {set((state) => ({ animals: [...state.animals, elem].sort((a,b) => (a.nome > b.nome) ? 1 : ((b.nome > a.nome) ? -1 : 0)) }));},
+  addAdjP: (elem) => {set((state) => ({ adjsP: [...state.adjsP, elem] })); get().adjsP.sort((a,b) => (a > b) ? 1 : ((b > a) ? -1 : 0));},
+  addAdjN: (elem) => { set((state) => ({ adjsN: [...state.adjsN, elem] }));  get().adjsN.sort((a,b) => (a > b) ? 1 : ((b > a) ? -1 : 0)); },
   addAdjAnimal: (adj, animal, pos) => {
     let newAdjs = [];
     const anim = get().animals.find(e => e.nome === animal);
