@@ -33,8 +33,7 @@ export default function Home() {
     const cap=animale.charAt(0).toUpperCase() + animale.slice(1);
     if(okAnimal && okAnimal && okFamiglia){
       const temp = {famiglia: famiglia, alimentazione: alimentazione, aggettiviP: adjsP.sort(), aggettiviN: adjsN.sort()}
-      await setDoc(doc(db,'animale',cap), temp);
-      addAnimal(Object.assign({nome: cap}, temp));
+      addAnimal(cap, temp);
     } else{
       /**Aggiungere toast di errore*/
     }
@@ -104,17 +103,7 @@ export default function Home() {
         </Row>
 
        <Button className='btnY mt-3' onClick={()=>{addanimale()}}>Aggiungi</Button>
-        
-        {/*<Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />*/}
-        
-        
+       
       </main>
     </>
   )

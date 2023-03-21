@@ -11,13 +11,13 @@ export default function Home() {
   const animalSearch = useStore((state) => state.animalSearch);
 
   const [nome, setNome] = useState('');
+  const [img, setImg] = useState('');
   const [famiglia, setFamiglia] = useState('');
   const [alimentazione, setAlimentazione] = useState('');
   const [intersection, setIntersection] = useState('');
   const [adjP, setAdjP] = useState('');
   const [adjN, setAdjN] = useState('');
   const [index, setIndex] = useState();
-
 
   return (
     <>
@@ -33,6 +33,7 @@ export default function Home() {
           {animalSearch.map((item,i) => (
             <Image src={'/animal/'+item.nome.toLowerCase().replaceAll(' ','')+'.webp'} alt={item.nome} width={80} height={100} className={index===i ? 'active':''}
             onClick={()=>{
+              setImg('/animal/'+item.nome.toLowerCase().replaceAll(' ','')+'.webp');
               setNome(item.nome);
               setFamiglia(item.famiglia);
               setAlimentazione(item.alimentazione);
@@ -52,7 +53,7 @@ export default function Home() {
             <>
               <small className='me-1'>Aggettivi in comune: {intersection}</small><br/>
               <h2 className='lightT text-start h1 m-0'>{nome}</h2>
-              <Image src={'/animal/'+nome.toLowerCase().replaceAll(' ','')+'.webp'} alt='' width={240} height={300} priority/>
+              <Image src={img} alt='' width={240} height={300} priority/>
               <div  className='me-1'>
                 <p className='m-0'>Famiglia: {famiglia}</p>
                 <p className=''>Alimentazione: {alimentazione}</p>

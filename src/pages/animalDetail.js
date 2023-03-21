@@ -5,9 +5,6 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Button, Form } from 'react-bootstrap';
 import { useState } from 'react';
-import { doc, updateDoc } from 'firebase/firestore';
-
-import db from '@database';
 
 export default function Home() {
 
@@ -15,6 +12,7 @@ export default function Home() {
 
   /**CAMPI STORE */
   const item = useStore((state) => state.animalClick);
+  const addAdjsAnimal = useStore((state) => state.addAdjsAnimal);
 
   const diffAdjsP = useStore((state) => state.adjsP).filter(x => !item.aggettiviP.includes(x));
   const diffAdjsN = useStore((state) => state.adjsN).filter(x => !item.aggettiviN.includes(x));
@@ -28,24 +26,10 @@ export default function Home() {
 
   const addAjs = () =>{
     if(adjsP.length>0){
-      const newAdjs = item.aggettiviP.concat(adjsP);
-      newAdjs.sort((a,b) => (a > b) ? 1 : ((b > a) ? -1 : 0));
-      addDBAdjAnimale(item.nome, newAdjs, true);
+      addAdjsAnimal(item.nome, item.aggettiviP.concat(adjsP), true);
     }
     if(adjsN.length>0){
-      const newAdjs = item.aggettiviN.concat(adjsN);
-      newAdjs.sort((a,b) => (a > b) ? 1 : ((b > a) ? -1 : 0));
-      addDBAdjAnimale(item.nome, newAdjs, false);
-    }
-  }
-
-   /** AGGIUNGE L'AGGETTIVO AGLI ANIMALI SELEZIONATI NEL DATABASE */
-   const addDBAdjAnimale = async (animal, arr, p) => {
-    const animale = doc(db, "animale", animal);
-    if(p){
-      await updateDoc(animale, { aggettiviP: arr }); 
-    }else{
-      await updateDoc(animale, { aggettiviN: arr }); 
+      addAdjsAnimal(item.nome, item.aggettiviN.concat(adjsN), false);
     }
   }
 
@@ -90,18 +74,7 @@ export default function Home() {
               ))}
           </div>
           <Button className='btnG mt-3' onClick={()=> {addAjs(); r.push('/allAnimal')}}>Aggiungi</Button>
-        </div>
-        
-        {/*<Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />*/}
-        
-        
+        </div>        
       </main>
     </>
   )
