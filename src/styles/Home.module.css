@@ -55,7 +55,7 @@
   position: absolute;
   display: inline-block;
 }
-.card img {width: 95%; height: 100%; object-fit: cover; object-position: 80% 0%; margin-left: 5%;}
+.card img {width: 95%; height: 100%; object-fit: cover; object-position: 0% 0%; margin-left: 5%;}
 .card p {
   position: relative;
   bottom: 5px;
