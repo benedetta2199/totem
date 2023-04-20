@@ -45,7 +45,7 @@
   object-fit: contain; object-position: 60% 50%;
 }
 .divBtn{
-  width: calc(var(--w) - 91px);
+  width: 40px;
   margin-top: 35px;
   display: flex;
   flex-direction: column;
