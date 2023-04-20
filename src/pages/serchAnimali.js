@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useState } from 'react';
 
 import useStore from "@store";
+import Link from 'next/link';
 
 export default function Home() {
 
@@ -18,6 +19,8 @@ export default function Home() {
   const [adjP, setAdjP] = useState('');
   const [adjN, setAdjN] = useState('');
   const [index, setIndex] = useState();
+  const [info, setInfo] = useState('');
+  const [daimon, setDaimon] = useState('');
 
   return (
     <>
@@ -41,6 +44,8 @@ export default function Home() {
               setAdjP(item.aggettiviP.toString().replaceAll(',',', '));
               setAdjN(item.aggettiviN.toString().replaceAll(',',', '));
               setIndex(i);
+              setInfo(item.hasOwnProperty('info') ? item.info : '');
+              setDaimon(item.hasOwnProperty('daimon') ? item.daimon : '');
             }} key={item.nome}/>
           ))}
         </div>
@@ -53,7 +58,13 @@ export default function Home() {
             <>
               <small className='me-1'>Aggettivi in comune: {intersection}</small><br/>
               <h2 className='lightT text-start h1 m-0'>{nome}</h2>
-              <Image src={img} alt='' width={240} height={300} priority/>
+              <div>
+                <div className={styles.divBtn}>
+                  {daimon != '' ? <Link className='btn btnY my-1' href={'https://daimonismo.altervista.org/forum/viewtopic.php?'+daimon} target="_blank">Daimon</Link> : <></>}
+                  {info != '' ? <Link className='btn btnY my-1' href={'https://animalia.bio/it/'+info} target="_blank">Info</Link> : <></> }
+                </div>
+                <Image src={img} alt='' width={240} height={300} priority/>
+              </div>
               <div  className='me-1'>
                 <p className='m-0'>Famiglia: {famiglia}</p>
                 <p className=''>Alimentazione: {alimentazione}</p>

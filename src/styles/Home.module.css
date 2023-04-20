@@ -34,7 +34,8 @@
 
 .containerAnimal{
   position: fixed; left: 90px; overflow-x: hidden;
-  width: calc(100% - 91px); height: 90vh;
+  width: calc(var(--w) - 91px); height: 90vh;
+  margin-left: calc((100vw - var(--w))/2);
   text-align: right;  
   padding-bottom: 8vh;
 }
@@ -42,6 +43,20 @@
   width: 224px; height: 280px; 
   position: relative; right: -15%; top: -2vh;
   object-fit: contain; object-position: 60% 50%;
+}
+.divBtn{
+  width: calc(var(--w) - 91px);
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start !important;
+  justify-content: flex-end !important;
+  position: absolute !important;
+  margin-left: -10px;
+}
+.divBtn a{
+  width: fit-content;
+  margin-top:  5px !important;
 }
 .containerAnimal div{position: relative; top: -2vh;}
 
