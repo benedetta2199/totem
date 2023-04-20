@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Button, Form } from 'react-bootstrap';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Home() {
 
@@ -52,6 +53,18 @@ export default function Home() {
             
             <h1>{item.nome}</h1>
             <Image src={"/animal/"+ img +'.webp'} alt="" width={500} height={500} priority/>
+            {console.log(item)}
+            <div>
+              {item.hasOwnProperty('info') 
+                ? <Link className='btn btnY my-1' href={'https://animalia.bio/it/'+item.info} target="_blank">Info</Link> 
+                : <></>
+              }
+              {item.hasOwnProperty('daimon') 
+                ? <Link className='btn btnY my-1' href={'https://daimonismo.altervista.org/forum/viewtopic.php?'+item.daimon} target="_blank">Daimon</Link> 
+                : <></>
+              }
+            </div>
+            
           </div>
         }
         <div className={styles.detailScroll}>

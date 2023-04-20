@@ -64,13 +64,27 @@
   z-index: 2;
 }
 
-.detailFixed{position: fixed;width: 100%;}
+.detailFixed{position: fixed; width: 100%;}
 .detailFixed img{
   width: calc(var(--w) *72/100);
   height: calc(var(--w) *90/100);
   position: relative; left: calc(var(--w) * -10/100); 
   object-fit: contain; object-position: 100% 0;
   -webkit-transform: scaleX(-1); transform: scaleX(-1);
+}
+.detailFixed div{
+  position: relative; 
+  width: var(--w);
+  bottom: calc(var(--w) * 90/100);
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+.detailFixed div a{
+  width: fit-content;
+  margin-right: calc(var(--w) *5/100) !important;
+  margin-Top: calc(var(--w) *5/100) !important;
+  align-self: end;
 }
 
 .detailScroll{
