@@ -10,7 +10,7 @@ export default function Home() {
         <title>Bestiario</title>
       </Head>
       <main>
-        <h1>Bestiario</h1>
+        <h1>Totem</h1>
         <div className='d-flex flex-column w-100'>
           <Link href="./totem" className={`${styles.menuBtn} ${styles.menuBtnLeft} btn py-3`}>Trova il totem
           </Link>
