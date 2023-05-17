@@ -2,9 +2,6 @@ import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import { useState } from 'react';
-import { doc, setDoc } from 'firebase/firestore';
-
-import db from '@database';
 import useStore from "@store";
 
 export default function Home() {

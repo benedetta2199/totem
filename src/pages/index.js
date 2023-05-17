@@ -24,6 +24,10 @@ export default function Home() {
           <Link href="./allAnimal" className={`${styles.menuBtn} ${styles.menuBtnRight} btn py-3 ms-auto`}>
             Controlla i dati
           </Link>
+
+          <Link href="https://www.scoutsengidsenvlaanderen.be/totemzoeker" className={`lightT text-center w-100 mt-5`}>
+            <i><u>Sito simile</u></i>
+          </Link>
           
         </div>
       </main>
