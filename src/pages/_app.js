@@ -16,7 +16,7 @@ export default function App({ Component, pageProps }) {
 
   useEffect(()=>{
     console.log(r.pathname);
-    if(!inizialize && r.pathname=='\animal'){
+    if(!inizialize){
       inizialize=true;
       console.log(inizialize);
       inizializeAdjs();
