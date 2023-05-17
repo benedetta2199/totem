@@ -25,9 +25,7 @@ export default function Home() {
             Controlla i dati
           </Link>
 
-          <Link href="https://www.scoutsengidsenvlaanderen.be/totemzoeker" className={`lightT text-center w-100 mt-5`}>
-            <i><u>Sito simile</u></i>
-          </Link>
+          
           
         </div>
       </main>
