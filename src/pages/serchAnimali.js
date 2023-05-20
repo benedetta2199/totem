@@ -43,8 +43,8 @@ export default function Home() {
               setIntersection(item.intersection);
               setAdjP(item.aggettiviP.toString().replaceAll(',',', '));
               setAdjN(item.aggettiviN.toString().replaceAll(',',', '));
-              setIndex(i);
-              setInfo(item.hasOwnProperty('info') ? item.info : '');
+              setInfo(item.hasOwnProperty('info') ? 'https://animalia.bio/it/'+item.info : '');
+              setInfo(item.hasOwnProperty('altro') ? item.altro : '');
               setDaimon(item.hasOwnProperty('daimon') ? item.daimon : '');
             }} key={item.nome}/>
           ))}
@@ -61,7 +61,7 @@ export default function Home() {
               <div>
                 <div className={styles.divBtn}>
                   {daimon != '' ? <Link className='btn btnY my-1' href={'https://daimonismo.altervista.org/forum/viewtopic.php?'+daimon} target="_blank">Daimon</Link> : <></>}
-                  {info != '' ? <Link className='btn btnY my-1' href={'https://animalia.bio/it/'+info} target="_blank">Info</Link> : <></> }
+                  {info != '' ? <Link className='btn btnY my-1' href={info} target="_blank">Info</Link> : <></> }
                 </div>
                 <Image src={img} alt='' width={240} height={300} priority/>
               </div>
