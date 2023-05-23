@@ -64,7 +64,7 @@ export default function Home() {
                 : <></>
               }
               {item.hasOwnProperty('totem') 
-                ? <Link className='btn btnY my-1' href={item.totem} target="_blank">Totem</Link> 
+                ? <Link className='btn btnY my-1' href={'https://www.scoutsengidsenvlaanderen.be/totemzoeker/'+item.totem} target="_blank">Totem</Link> 
                 : <></>
               }
               {item.hasOwnProperty('daimon') 
