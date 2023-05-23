@@ -20,6 +20,7 @@ export default function Home() {
   const [adjN, setAdjN] = useState('');
   const [index, setIndex] = useState();
   const [info, setInfo] = useState('');
+  const [totem, setTotem] = useState('');
   const [daimon, setDaimon] = useState('');
 
   return (
@@ -43,9 +44,9 @@ export default function Home() {
               setIntersection(item.intersection);
               setAdjP(item.aggettiviP.toString().replaceAll(',',', '));
               setAdjN(item.aggettiviN.toString().replaceAll(',',', '));
-              setInfo(item.hasOwnProperty('info') ? 'https://animalia.bio/it/'+item.info : '');
-              setInfo(item.hasOwnProperty('altro') ? item.altro : '');
+              setInfo(item.hasOwnProperty('info') ? 'https://animalia.bio/it/'+item.info : item.altro);
               setDaimon(item.hasOwnProperty('daimon') ? item.daimon : '');
+              setTotem(item.hasOwnProperty('totem') ? item.totem : '');
             }} key={item.nome}/>
           ))}
         </div>
@@ -61,6 +62,7 @@ export default function Home() {
               <div>
                 <div className={styles.divBtn}>
                   {daimon != '' ? <Link className='btn btnY my-1' href={'https://daimonismo.altervista.org/forum/viewtopic.php?'+daimon} target="_blank">Daimon</Link> : <></>}
+                  {totem != '' ? <Link className='btn btnY my-1' href={'https://www.scoutsengidsenvlaanderen.be/totemzoeker/'+totem} target="_blank">Totem</Link> : <></> }
                   {info != '' ? <Link className='btn btnY my-1' href={info} target="_blank">Info</Link> : <></> }
                 </div>
                 <Image src={img} alt='' width={240} height={300} priority/>

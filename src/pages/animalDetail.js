@@ -63,6 +63,10 @@ export default function Home() {
                 ? <Link className='btn btnY my-1' href={item.altro} target="_blank">Info</Link> 
                 : <></>
               }
+              {item.hasOwnProperty('totem') 
+                ? <Link className='btn btnY my-1' href={item.totem} target="_blank">Totem</Link> 
+                : <></>
+              }
               {item.hasOwnProperty('daimon') 
                 ? <Link className='btn btnY my-1' href={'https://daimonismo.altervista.org/forum/viewtopic.php?'+item.daimon} target="_blank">Daimon</Link> 
                 : <></>
