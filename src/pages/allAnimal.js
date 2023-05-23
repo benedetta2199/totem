@@ -21,7 +21,7 @@ export default function Home() {
         <h1>Controlla i dati</h1>
         <div className='d-flex flex-wrap justify-content-around'>
         {allAnimal.map((item) => (
-              <div key={item.nome} id={item.nome} className={styles.card} onClick={()=>{setAnimalClick(item); r.push('./animalDetail')}}>
+              <div key={item.nome} id={item.nome.replaceAll(' ','').toLowerCase()} className={styles.card} onClick={()=>{setAnimalClick(item); r.push('./animalDetail')}}>
                 <Image src={"/animal/"+item.nome.toLowerCase().replaceAll(' ','')+'.webp'} alt="" width={100} height={10} priority/>
                 <p>{item.nome}</p>
               </div>
